@@ -30,6 +30,48 @@ public class NoRepeatStr {
         NoRepeatStr n = new NoRepeatStr();
         int abca = n.lengthOfLongestSubstring("abcabcbb");
         System.out.println(abca);
+        System.out.println(n.lengthOfLongestSubstring1("abcabcbb"));
+        System.out.println(n.lengthOfLongestSubstring2("abcabcbb"));
+    }
+
+    public int lengthOfLongestSubstring1(String s) {
+        int start = 0;
+        int end = 0;
+        int maxLength = 0;
+        int result = 0;
+        for (end = 0; end < s.length(); end++) {
+            int temp = s.charAt(end);
+            for (int index = start; index < end; index++) {
+                if (temp == s.charAt(index)) {
+                    start = index + 1;
+                    maxLength = end - start;
+                    break;
+                }
+            }
+            maxLength++;
+            result = Math.max(result, maxLength);
+        }
+        return result;
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        int start = 0;
+        int end = 0;
+        int maxLength = 0;
+        int result = 0;
+        for (end = 0; end < s.length(); end++) {
+            int temp = s.charAt(end);
+            for (int index = start; index < end; index++) {
+                if (temp == s.charAt(index)) {
+                    start = index + 1;
+                    maxLength = end - start;
+                    break;
+                }
+            }
+            maxLength++;
+            result = Math.max(result, maxLength);
+        }
+        return result;
     }
 
 }
