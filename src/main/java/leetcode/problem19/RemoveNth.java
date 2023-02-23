@@ -53,8 +53,25 @@ public class RemoveNth {
         l2.next = l3;
         l3.next = l4;
         l4.next = l5;
-        ListNode listNode = r.removeNthFromEnd(l1, 2);
-        System.out.println(listNode);
+//        ListNode listNode = r.removeNthFromEnd(l1, 2);
+//        System.out.println(listNode);
+        System.out.println(r.removeNthFromEnd1(l1, 2));
+    }
+
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+        ListNode pre = new ListNode(0);
+        pre.next = head;
+        ListNode p = pre;
+        ListNode q = pre;
+        for (int i = 0; i < n + 1;i ++) {
+            q = q.next;
+        }
+        while (q != null) {
+            q = q.next;
+            p = p.next;
+        }
+        p.next = p.next.next;
+        return pre.next;
     }
 
 }
@@ -66,4 +83,12 @@ class ListNode {
         next = null;
     }
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "val=" + val +
+                ", next=" + next +
+                '}';
+    }
 }

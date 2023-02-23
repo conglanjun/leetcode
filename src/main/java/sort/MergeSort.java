@@ -7,7 +7,7 @@ import java.util.List;
 public class MergeSort {
 
     public void merge (List<Integer> li, int low, int mid, int high) {
-        List<Integer> tmp = new ArrayList<Integer>();
+        List<Integer> tmp = new ArrayList<>();
         int i = low;
         int j = mid + 1;
         while (i <= mid && j <= high) {
@@ -42,7 +42,47 @@ public class MergeSort {
         List<Integer> li = Arrays.asList(list);
         System.out.println(li);
         MergeSort ms = new MergeSort();
-        ms.mergeSort(li, 0, li.size() - 1);
+        ms.mergeSort1(li, 0, li.size() - 1);
         System.out.println(li);
     }
+
+
+    public void mergeSort1(List<Integer> li, int left, int right) {
+        int mid = (right + left) / 2;
+        if (left < right) {
+            mergeSort1(li, left, mid);
+            mergeSort1(li, mid + 1, right);
+            merge1(li, mid, left, right);
+        }
+    }
+
+    public void merge1(List<Integer> li, int mid, int left, int right) {
+        List<Integer> temp = new ArrayList<>();
+        int leftStart = left;
+        int rightStart = mid + 1;
+        while (leftStart <= mid && rightStart <= right) {
+            if (li.get(leftStart) < li.get(rightStart)) {
+                temp.add(li.get(leftStart++));
+            } else {
+                temp.add(li.get(rightStart++));
+            }
+        }
+        while (leftStart <= mid) {
+            temp.add(li.get(leftStart++));
+        }
+        while (rightStart <= right) {
+            temp.add(li.get(rightStart++));
+        }
+        for (int i = 0; i < temp.size(); i++) {
+            li.set(left + i, temp.get(i));
+        }
+    }
+
+
+
+
+
+
+
+
 }

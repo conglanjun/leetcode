@@ -56,20 +56,20 @@ public class NoRepeatStr {
 
     public int lengthOfLongestSubstring2(String s) {
         int start = 0;
-        int end = 0;
-        int maxLength = 0;
+        int len = s.length();
+        int max = 0;
         int result = 0;
-        for (end = 0; end < s.length(); end++) {
+        for (int end = 0; end < len; end++) {
             int temp = s.charAt(end);
             for (int index = start; index < end; index++) {
                 if (temp == s.charAt(index)) {
                     start = index + 1;
-                    maxLength = end - start;
+                    max = end - start;
                     break;
                 }
             }
-            maxLength++;
-            result = Math.max(result, maxLength);
+            max++;
+            result = Math.max(result, max);
         }
         return result;
     }

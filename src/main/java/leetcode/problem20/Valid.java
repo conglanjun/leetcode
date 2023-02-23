@@ -28,6 +28,24 @@ public class Valid {
         Valid v = new Valid();
         boolean valid = v.isValid("()");
         System.out.println(valid);
+        System.out.println(v.isValid1("()"));
+    }
+
+    public boolean isValid1(String s) {
+        char[] chars = s.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '(') {
+                stack.add(')');
+            } else if (chars[i] == '[') {
+                stack.add(']');
+            } else if (chars[i] == '{') {
+                stack.add('}');
+            } else if (stack.isEmpty() || chars[i] != stack.pop()) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
     }
 
 }

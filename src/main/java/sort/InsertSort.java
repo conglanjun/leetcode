@@ -10,6 +10,7 @@ public class InsertSort {
             int tmp = li.get(i);
             int j = i - 1;
             while(j >= 0 && li.get(j) > tmp){
+                li.set(j + 1, li.get(j));
                 j--;
             }
             li.set(j + 1, tmp);
