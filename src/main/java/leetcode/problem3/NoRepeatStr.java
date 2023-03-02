@@ -55,23 +55,23 @@ public class NoRepeatStr {
     }
 
     public int lengthOfLongestSubstring2(String s) {
+        char[] chars = s.toCharArray();
+        int len = chars.length;
         int start = 0;
-        int len = s.length();
         int max = 0;
-        int result = 0;
+        int res = 0;
         for (int end = 0; end < len; end++) {
-            int temp = s.charAt(end);
-            for (int index = start; index < end; index++) {
-                if (temp == s.charAt(index)) {
-                    start = index + 1;
+            for (int left = start; left < end; left++) {
+                if (chars[left] == chars[end]) {
+                    start = left + 1;
                     max = end - start;
                     break;
                 }
             }
             max++;
-            result = Math.max(result, max);
+            res = Math.max(max, res);
         }
-        return result;
+        return res;
     }
 
 }

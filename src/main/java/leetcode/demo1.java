@@ -71,11 +71,11 @@ public class demo1 {
         return true;
     }
 
-    public static void main(String[] args) {
-        demo1 d = new demo1();
-        Map<Integer, Integer> mapCount = d.getMapCount(new String[]{"210112198601253836", "210112199901253836"});
-        System.out.println(mapCount);
-    }
+//    public static void main(String[] args) {
+//        demo1 d = new demo1();
+//        Map<Integer, Integer> mapCount = d.getMapCount(new String[]{"210112198601253836", "210112199901253836"});
+//        System.out.println(mapCount);
+//    }
 
     // identify ids 210112198601253836     10 years   count
     public Map<Integer, Integer> getMapCount(String[] ids) {
@@ -97,7 +97,9 @@ public class demo1 {
         return res;
     }
 
+    public static void main(String[] args) {
 
+    }
 
 
 

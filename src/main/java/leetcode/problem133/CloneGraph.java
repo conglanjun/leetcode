@@ -27,10 +27,10 @@ class Node {
 
 public class CloneGraph {
     public Node cloneGraph(Node node) {
+        Map<Node, Node> map = new HashMap<>();
         if (node == null) {
             return null;
         }
-        Map<Node, Node> map = new HashMap<>();
         return dfs(node, map);
     }
 
@@ -38,11 +38,11 @@ public class CloneGraph {
         if (map.containsKey(node)) {
             return map.get(node);
         }
-        Node clone = new Node(node.val);
-        map.put(node, clone);
+        Node cloneNode = new Node(node.val);
+        map.put(node, cloneNode);
         for (int i = 0; i < node.neighbors.size(); i++) {
-            clone.neighbors.add(dfs(node.neighbors.get(i), map));
+            cloneNode.neighbors.add(dfs(node.neighbors.get(i), map));
         }
-        return clone;
+        return cloneNode;
     }
 }
