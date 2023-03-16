@@ -1,4 +1,4 @@
-package leetcode.problem3;
+package leetcode.p3LongestSubstringWithoutRepeatingCharacters;
 
 public class NoRepeatStr {
 
@@ -72,6 +72,29 @@ public class NoRepeatStr {
             res = Math.max(max, res);
         }
         return res;
+    }
+
+    public int lengthOfLongestSubstring3(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int max = 0;
+        int result = 0;
+        char[] chars = s.toCharArray();
+        int start = 0;
+        for (int end = 0; end < chars.length; end++) {
+            int temp = chars[end];
+            for (int index = start; index < end; index++) {
+                if (chars[index] == temp) {
+                    start = index + 1;
+                    max = end - start;
+                    break;
+                }
+            }
+            max++;
+            result = Math.max(result, max);
+        }
+        return result;
     }
 
 }

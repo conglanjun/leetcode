@@ -1,9 +1,13 @@
 package leetcode;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 public class demo1 {
 
@@ -100,6 +104,55 @@ public class demo1 {
     public static void main(String[] args) {
 
     }
+
+    class Node {
+        Node left;
+        Node right;
+        int val;
+        public Node() {
+
+        }
+        public int getVal() {
+            return val;
+        }
+    }
+
+    public List<List<Integer>> levelOrder(Node root) {
+        if (root == null) return new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> level = new ArrayList<>();  // 1(1)           2(3 2)              3(4 5 6 7)
+        res.add(level);
+        _dpf(root, res, 0);
+        return  res;
+    }
+
+    private void _dpf(Node root, List<List<Integer>> res, int level) {
+        if (root == null) return;
+        if (res.size() < level + 1) {
+            res.add(new ArrayList<>());
+        }
+        res.get(level).add(root.val);
+        _dpf(root.left, res, level + 1);
+        _dpf(root.right, res, level + 1);
+    }
+
+    // 1
+    //  2
+   //  4 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package leetcode.problem2;
+package leetcode.p2AddTwoNumbers;
 
 public class AddTwoNumber1 {
 

@@ -1,4 +1,4 @@
-package leetcode.problem3;
+package leetcode.p3LongestSubstringWithoutRepeatingCharacters;
 
 import java.util.ArrayList;
 import java.util.Arrays;

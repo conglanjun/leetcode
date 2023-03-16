@@ -1,4 +1,4 @@
-package leetcode.problem2;
+package leetcode.p2AddTwoNumbers;
 
 public class AddTwoNumber {
     public static void main(String[] args) {
@@ -58,17 +58,32 @@ class Solution {
         }
         return result.next;
     }
+
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        int ten = 0;
+        ListNode result = new ListNode();
+        ListNode ret = result;
+        while (l1 != null || l2!= null) {
+            int sum = ten;
+            if (l1 != null) {
+                sum += l1.val;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+            }
+            ten = sum / 10;
+            result.next = new ListNode(sum % 10) ;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+            result = result.next;
+        }
+        if (ten == 1) {
+            result.next = new ListNode(1);
+        }
+        return ret.next;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
